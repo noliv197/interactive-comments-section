@@ -4,23 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
   
   <title>Frontend Mentor | Interactive comments section</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
 
-  <!-- Pull dynamic content from the data.json file -->
+  <header class="nav-header">
+    <nav aria-label="main navigation">
+      <a class="active" href="/">Comments</a>
+      <a href="/login.html">Login</a>
+      <a href="/register.html">Register</a>
+    </nav>
+  </header>
+  <main>
+    <section class="layer">
+      <!-- <div class="comment">
+        <div class="container-counter">
+          <button type="button" class="btn--operator" data-button="add">+</button>
+          <output class="counter">15</output>
+          <button type="button" class="btn--operator" data-button="subtract">-</button>
+        </div>
+        <div class="container-comment">
+          <header>
+            <div>
+              <img src="./assets/images/avatars/image-amyrobson.webp" alt="">
+              <p class="comment--username">amyrobson</p>
+              <p class="comment--identification">you</p>
+              <p class="comment--time">1 month ago</p>
+            </div>
+            <div class="container-buttons">
+              <button class="btn--reply">Reply</button>
+              <button class="btn--delete">Delete</button>
+              <button class="btn--edit">Edit</button>
+            </div>
+          </header>
+          <p class="comment--text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequuntur, ad. Enim in facilis, itaque dignissimos nostrum voluptatem temporibus?
+            Rerum neque iusto asperiores qui dolores omnis sint molestias temporibus! Nostrum, aut!
+          </p>
+        </div>
+      </div> -->
+    </section>
+
+    <!-- <form id="comment-form">
+      <img src="./assets/images/avatars/image-juliusomo.webp" alt="">
+      <textarea name="comment" id="comment" placeholder="Add a comment..." required></textarea>
+      <button type="submit" class="btn--submit">Send</button>
+    </form> -->
+  </main>
   
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    Coded by <a href="#">Natalia Oliveira</a>.
+  </footer>
 </body>
 </html>

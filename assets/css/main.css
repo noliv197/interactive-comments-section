@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('./navBar.css');
+@import url('./buttons.css');
+@import url('./comment.css');
+@import url('./comment-form.css');
+@import url('./footer.css');
+
+:root{
+    /* Typography */
+    --font-normal: 400;
+    --font-bold: 500;
+    --font-extra-bold: 700;
+    --font-size: 16px;
+    --font-family: "Rubik", sans-serif;
+
+    /* Color */
+    --primary-blue: hsl(238, 40%, 52%);
+    --primary-red: hsl(358, 79%, 66%);
+    --primary-light-blue: hsl(239, 57%, 85%);
+    --primary-light-pale-red: hsl(357, 100%, 86%);
+
+    --neutral-dark-blue: hsl(212, 24%, 26%);
+    --neutral-blue: hsl(211, 10%, 45%);
+    --neutral-gray: hsl(223, 19%, 93%);
+    --neutral-light-gray: hsl(228, 33%, 97%);
+    --neutral-white: hsl(0, 0%, 100%);
+
+    /* Sizing */
+    --xsm: .2rem;
+    --sm-0: .5rem;
+    --sm-1: 1rem;
+    --md-1: 2rem;
+    --lg-1: 3rem;
+    --radius: 6px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    min-height: 100dvh;
+    background-color: var(--primary-light-blue);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sm-1);
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    width: 100%;
+}
+
+/* Global Classes */
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+a.active {
+    text-decoration: underline;
+}

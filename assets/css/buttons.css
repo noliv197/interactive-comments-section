@@ -1,0 +1,65 @@
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Counter Buttons */
+.btn--operator {
+    font-size: 1.5rem;
+    color: var(--primary-light-blue);
+}
+
+.btn--operator:hover {
+    color: var(--primary-blue);
+}
+
+/* Reply button */
+.btn--reply {
+    color: var(--primary-blue);
+    font-weight: var(--font-extra-bold);
+    display: flex;
+    align-items: center;
+}
+
+.btn--reply::before {
+    content: url('../images/icon-reply.svg');
+    margin-right: var(--sm-0);
+}
+
+/* Delete Button */
+.btn--delete {
+    color: var(--primary-red);
+    font-weight: var(--font-extra-bold);
+    display: flex;
+    align-items: center;
+}
+
+.btn--delete::before {
+    content: url('../images/icon-delete.svg');
+    margin-right: var(--sm-0);
+}
+
+/* Edit Button */
+.btn--edit {
+    color: var(--primary-blue);
+    font-weight: var(--font-extra-bold);
+    display: flex;
+    align-items: center;
+}
+
+.btn--edit::before {
+    content: url('../images/icon-edit.svg');
+    margin-right: var(--sm-0);
+}
+
+/* Submit Button */
+.btn--submit {
+    padding: var(--sm-1);
+    color: var(--neutral-white);
+    background-color: var(--primary-blue);
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    min-width: 80px;
+    font-weight: var(--font-extra-bold);
+}

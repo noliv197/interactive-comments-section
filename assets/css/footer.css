@@ -1,0 +1,14 @@
+footer {
+    text-align: center;
+    font-size: 0.75rem;
+    padding: var(--md-1);
+}
+
+footer a{
+    color: var(--neutral-blue);
+    font-weight: var(--font-bold);
+}
+
+footer a:hover{
+    color: var(--neutral-dark-blue);
+}
