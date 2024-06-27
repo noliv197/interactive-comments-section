@@ -51,7 +51,7 @@ a {
 
 body {
     min-height: 100dvh;
-    background-color: var(--primary-light-blue);
+    background-color: var(--neutral-light-gray);
     display: flex;
     flex-direction: column;
     gap: var(--sm-1);
