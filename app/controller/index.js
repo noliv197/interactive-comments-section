@@ -2,9 +2,35 @@ import { createForm } from "../view/form.js";
 import { addComment } from "../controller/service.js";
 import { Comments } from "../model/Comment.js";
 
-const user = {
-    username: 'amyrobson',
-    id: 1
+let user 
+
+const userInfo = localStorage.getItem('user');
+if(userInfo){
+    user = JSON.parse(userInfo)
+} else {
+    location.replace("http://127.0.0.1:5500/login.html");
+}
+
+if(user){
+    document.querySelectorAll('[data-nav]').forEach(link => {
+        if(link.dataset.nav === 'login'){
+            link.classList.add('invisible')
+            link.classList.remove('visible')
+        } else {
+            link.classList.add('visible')
+            link.classList.remove('invisible')
+        }
+    })
+} else {
+    document.querySelectorAll('[data-nav]').forEach(link => {
+        if(link.dataset.nav === 'login'){
+            link.classList.add('visible')
+            link.classList.remove('invisible')
+        } else {
+            link.classList.add('invisible')
+            link.classList.remove('visible')
+        }
+    })
 }
 
 Comments.getAllComments(user);
@@ -24,7 +50,6 @@ document.querySelectorAll('button.btn--reply').forEach(button =>
                 const formData = new FormData();
                 formData.append('comment', comment)
                 formData.append('userId', user.id)
-                console.log(formData)
                 await addComment(formData);
                 // document.querySelector('main').removeChild(e.target)
             })
@@ -32,3 +57,8 @@ document.querySelectorAll('button.btn--reply').forEach(button =>
         }
     })
 )
+
+document.querySelector(['[data-nav="logout"]']).addEventListener('click',() => {
+    localStorage.removeItem('user');
+    location.replace("http://127.0.0.1:5500/login.html");
+})

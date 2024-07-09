@@ -32,3 +32,13 @@ export async function editScore(data){
   
   return response
 }
+
+/* User Requests */
+export async function login(data){
+  const response = await fetch(`${backendUrl}/login`,{
+    method: "POST",
+    body: data
+  });
+  
+  return response
+}

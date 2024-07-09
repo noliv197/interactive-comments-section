@@ -53,7 +53,7 @@ function createCommentCounter(comment, user){
     })
 
     // User cannot change score counter
-    if(comment.user.id == user.id){
+    if(user && comment.user.id == user.id){
         addButton.setAttribute('disabled','');
         subtractButton.setAttribute('disabled','');
     }
@@ -115,7 +115,7 @@ function createCommentHeader(comment, user){
         }           
     );
 
-    if(comment.user.id == user.id){
+    if(user && comment.user.id == user.id){
         const identification = document.createElement('p');
         addElementOptions(identification,
             {

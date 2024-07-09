@@ -14,16 +14,16 @@
   <header class="nav-header">
     <nav aria-label="main navigation">
       <a href="/">Comments</a>
-      <a class="active" href="/login.html">Login</a>
-      <a href="/register.html">Register</a>
+      <a data-nav="login" class="active" href="/login.html">Login</a>
     </nav>
   </header>
   <main>
     <h1 class="form-title">Login To Interact With the Comment Section</h1>
+    <p class="invisible alert"></p>
     <form class="user-form">
       <div class="input-container">
-        <label for="email">Enter email</label>
-        <input type="email" name="email" id="email" required>
+        <label for="username">Enter username</label>
+        <input type="text" name="username" id="username" required>
       </div>
       <div class="input-container">
         <label for="pass">Enter password</label>
@@ -38,4 +38,5 @@
     Coded by <a href="#">Natalia Oliveira</a>.
   </footer>
 </body>
+  <script type="module" src="./app/controller/login.js"></script>
 </html>

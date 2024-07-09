@@ -57,6 +57,7 @@
     color: var(--primary-blue);
     font-weight: var(--font-extra-bold);
     cursor: pointer;
+    border: 2px dashed var(--primary-blue);
 }
   
 .img-label:hover {

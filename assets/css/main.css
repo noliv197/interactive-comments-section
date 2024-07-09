@@ -76,3 +76,12 @@ main {
 a.active {
     text-decoration: underline;
 }
+
+.alert {
+    text-align: center;
+    background-color: var(--primary-light-pale-red);
+    width: 50%;
+    margin: var(--sm-1) auto;
+    padding: var(--sm-0);
+    border-radius: var(--radius);
+}
