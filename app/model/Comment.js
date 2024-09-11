@@ -1,16 +1,37 @@
-import { getComments } from "../controller/service.js";
-import { createComment } from "../view/comment.js";
+import { getComments, addComment } from "../controller/service.js";
+import { createComment, createSection } from "../view/comment.js";
 
 export class Comments{
     static async getAllComments(user){
+        document.querySelector('main').innerHTML = '';
         getComments()
         .then(response => response.json())
         .then(data => {
-            const section = document.querySelector('section.layer');
-            data.forEach(comment => {
+            data.filter(comment => comment.parentId === null)
+            .forEach(comment => {
+                const section = createSection(comment.id);
                 const commentElement = createComment(comment, user);
                 section.appendChild(commentElement);
-            })}
+                
+                // get replies
+                data.filter(reply => String(reply.parentId) === String(comment.id))
+                .forEach(secondary => {
+                    const secondaryElement = createComment(secondary, user);
+                    section.appendChild(secondaryElement);
+                });
+                
+                document.querySelector('main').appendChild(section);
+            });
+            // data.forEach(comment => {
+            //     const commentElement = createComment(comment, user);
+            //     section.appendChild(commentElement);
+            // })
+            }
         )
+    }
+
+    static async addReply(data){
+        addComment(data)
+        .then(() => Comments.getAllComments());
     }
 }

@@ -1,4 +1,8 @@
 /* Container styles */
+.layer {
+    margin: var(--sm-1);   
+}
+
 .comment {
     padding: var(--sm-1);
     display: flex;
@@ -66,4 +70,8 @@
     font-weight: var(--font-bold);
     padding: var(--xsm);
     border-radius: var(--radius);
+}
+
+.comment--secondary{
+    margin: var(--sm-1) 0 0 var(--sm-1);
 }

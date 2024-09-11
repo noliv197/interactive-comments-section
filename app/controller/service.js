@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost/comment-app/routes.php/"
+const backendUrl = "http://localhost/comment-app/routes.php"
 
 export async function getComments(){
   return await fetch(`${backendUrl}/comments`)
@@ -12,13 +12,13 @@ export async function addComment(data){
 
     const response = await fetch(`${backendUrl}/addComment`, {
         method: "POST", 
-        headers: {
-          "Content-Type": "application/json",
-        },
+        // headers: {
+        //   "Content-Type": "application/json",
+        // },
         body: data
       });
 
-    console.log (response);
+    return response;
 }
 
 export async function editScore(data){

@@ -20,11 +20,12 @@ form.addEventListener('submit', async (e)=>{
         )
         .then(data => {
             if(data){
+                console.log(data)
                 localStorage.setItem('user', JSON.stringify(data));
                 location.replace("http://127.0.0.1:5500/");
             } else {
                 const alert = document.querySelector('.alert');
-                alert.textContent = 'Username or password wrong'
+                alert.textContent = 'Username or password wrong';
                 alert.classList.add('visible');
                 alert.classList.remove('invisible');
                 

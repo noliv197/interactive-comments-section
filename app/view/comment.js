@@ -1,9 +1,21 @@
 import { timeAgo } from "../helpers/functions.js";
 import { addElementOptions } from "../helpers/elements.js";
+import { createForm } from "./form.js";
+import { Comments } from "../model/Comment.js";
+
+
+export function createSection(parentId){
+    const section = document.createElement('section');
+    section.classList.add('layer');
+    section.setAttribute('id', `layer-${parentId}`);
+
+    return section;
+}
 
 export function createComment(comment, user){
     const mainDiv = document.createElement('div');
     mainDiv.classList.add('comment');
+    if(comment.parentId) mainDiv.classList.add('comment--secondary');
 
     mainDiv.appendChild(createCommentCounter(comment, user));
     mainDiv.appendChild(createCommentBody(comment, user));
@@ -156,6 +168,29 @@ function createCommentHeader(comment, user){
                 classes: ['btn--reply']
             }           
         );
+
+        replyBtn.addEventListener('click', () => {
+            let formExists = document.querySelectorAll('form.comment-form');
+            if(!formExists || formExists.length === 0){
+                const form = createForm({
+                    image: user.image.webp ? user.image.webp : user.image.png,
+                    username: user.username
+                });
+                console.log(comment)
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const message = document.querySelector('#comment').value;
+                    const formData = new FormData();
+                    formData.append('comment', message);
+                    formData.append('userId', user.id);
+                    formData.append('parentId', comment.id);
+
+                    await Comments.addReply(formData);
+                    document.querySelector('main').removeChild(e.target)
+                })
+                document.querySelector('main').appendChild(form);
+            }
+        })
 
         leftDiv.appendChild(username);
         rightDiv.appendChild(replyBtn);
