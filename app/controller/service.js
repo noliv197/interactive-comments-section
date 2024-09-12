@@ -23,14 +23,18 @@ export async function addComment(data){
 
 export async function editScore(data){
   const response = await fetch(`${backendUrl}/editScore`,{
-    method: "POST", 
-    headers: {
-      "Content-Type": "application/json",
-    },
+    method: "POST",
     body: data
   });
   
-  return response
+  return response;
+}
+export async function deleteComment(query){
+  const response = await fetch(`${backendUrl}/deleteComment?${query}`,{
+    method: "DELETE"
+  });
+  
+  return response;
 }
 
 /* User Requests */

@@ -145,6 +145,15 @@ function createCommentHeader(comment, user){
             }           
         )
 
+        deleteBtn.addEventListener(`click`, async () => {
+            const data = {
+                'commentId': comment.id,
+                'commentUserId': comment.user.id,
+                'loginId': comment.id,
+            };
+            await Comments.delComment(data);
+        });
+
         const editBtn = document.createElement('button');
         addElementOptions(editBtn,
             {
@@ -176,7 +185,7 @@ function createCommentHeader(comment, user){
                     image: user.image.webp ? user.image.webp : user.image.png,
                     username: user.username
                 });
-                console.log(comment)
+
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     const message = document.querySelector('#comment').value;
