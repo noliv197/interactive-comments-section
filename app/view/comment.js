@@ -2,6 +2,7 @@ import { timeAgo } from "../helpers/functions.js";
 import { addElementOptions } from "../helpers/elements.js";
 import { createForm } from "./form.js";
 import { Comments } from "../model/Comment.js";
+import { createModal } from "./modal.js";
 
 
 export function createSection(parentId){
@@ -143,15 +144,16 @@ function createCommentHeader(comment, user){
                 attrs: [{name:'data-button', value: 'delete'}], 
                 classes: ['btn--delete']
             }           
-        )
+        );
 
         deleteBtn.addEventListener(`click`, async () => {
-            const data = {
-                'commentId': comment.id,
-                'commentUserId': comment.user.id,
-                'loginId': comment.id,
-            };
-            await Comments.delComment(data);
+            createModal('delete', comment, user.id);
+            // const data = {
+            //     'commentId': comment.id,
+            //     'commentUserId': comment.user.id,
+            //     'loginId': user.id,
+            // };
+            // await Comments.delComment(data);
         });
 
         const editBtn = document.createElement('button');

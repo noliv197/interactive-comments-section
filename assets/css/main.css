@@ -5,6 +5,7 @@
 @import url('./comment-form.css');
 @import url('./form.css');
 @import url('./footer.css');
+@import url('./modal.css');
 
 :root{
     /* Typography */
@@ -23,8 +24,10 @@
     --neutral-dark-blue: hsl(212, 24%, 26%);
     --neutral-blue: hsl(211, 10%, 45%);
     --neutral-gray: hsl(223, 19%, 93%);
+    --neutral-gray-transparent: rgba(225, 235, 225, 0.9);
     --neutral-light-gray: hsl(228, 33%, 97%);
     --neutral-white: hsl(0, 0%, 100%);
+    --neutral-green: hsl(86, 47%, 69%);
 
     /* Sizing */
     --xsm: .2rem;

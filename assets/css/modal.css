@@ -1,0 +1,47 @@
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:  999;
+    background-color: var(--neutral-gray-transparent);
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-card{
+    background-color: var(--neutral-gray) ;
+    box-shadow: 10px 10px 28px -7px rgba(0,0,0,0.75);
+    padding: 2rem;
+}
+
+.close-modal{
+    position: fixed;
+    z-index:  999;
+    top: 10%;
+    right: 10%;
+    transform: translate(-10%, -10%);
+    display: inline-block;
+    width: fit-content;
+    font-size: 2.5rem;
+}
+
+.close-modal:hover {
+    opacity: 0.5;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: var(--sm-1);
+    margin: var(--sm-1) 0;
+}
+
+.modal {
+    position: relative;
+    width: fit-content;
+}

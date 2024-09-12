@@ -63,3 +63,24 @@ button {
     min-width: 80px;
     font-weight: var(--font-extra-bold);
 }
+
+/* Modal Buttons */
+.btn--modal {
+    padding: var(--sm-1);
+    border-radius: var(--radius);
+    font-weight: var(--font-extra-bold);
+}
+
+.btn--confirm {
+    /* color: var(--neutral-white); */
+    background-color: var(--neutral-green);
+}
+
+.btn--cancel {
+    background-color: var(--primary-light-pale-red);
+}
+
+.btn--confirm:hover,
+.btn--cancel:hover{
+    opacity: 0.7;
+}
