@@ -33,7 +33,21 @@ if(user){
 
 Comments.getAllComments(user);
 
-document.querySelector(['[data-nav="logout"]']).addEventListener('click',() => {
+document.querySelector(['[data-nav="logout"]']).addEventListener('click', () => {
     localStorage.removeItem('user');
     location.replace("http://127.0.0.1:5500/login.html");
+})
+
+document.querySelector('#form-new').addEventListener('submit', async (e) => {
+
+    e.preventDefault();
+    const formData = new FormData();
+
+    const message = document.querySelector('#comment-new').value;
+    formData.append('comment', message);
+    formData.append('userId', user.id);
+
+    await Comments.add(formData, user);
+    document.querySelector('#comment-new').value = '';
+
 })

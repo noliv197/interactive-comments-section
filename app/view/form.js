@@ -1,7 +1,8 @@
 
 export function createForm(user){
     const form = document.createElement('form');
-    form.id = "comment-form";   
+    form.classList.add('comment-form');
+    form.id = "form-reply";   
     // Create image
     const img = document.createElement('img');
     img.src = user.image;
@@ -9,8 +10,8 @@ export function createForm(user){
     
     // Create textarea input    
     const message = document.createElement('textarea');
+    message.id = 'comment-reply';
     message.name = 'comment';
-    message.id = 'comment';
     message.placeholder = 'Add a comment...';
     message.required = true;
     

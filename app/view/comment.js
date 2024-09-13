@@ -147,13 +147,7 @@ function createCommentHeader(comment, user){
         );
 
         deleteBtn.addEventListener(`click`, async () => {
-            createModal('delete', comment, user.id);
-            // const data = {
-            //     'commentId': comment.id,
-            //     'commentUserId': comment.user.id,
-            //     'loginId': user.id,
-            // };
-            // await Comments.delComment(data);
+            createModal('delete', comment, user);
         });
 
         const editBtn = document.createElement('button');
@@ -180,8 +174,8 @@ function createCommentHeader(comment, user){
             }           
         );
 
-        replyBtn.addEventListener('click', () => {
-            let formExists = document.querySelectorAll('form.comment-form');
+        replyBtn.addEventListener('click', (e) => {
+            let formExists = document.querySelectorAll('#form-reply');
             if(!formExists || formExists.length === 0){
                 const form = createForm({
                     image: user.image.webp ? user.image.webp : user.image.png,
@@ -190,21 +184,28 @@ function createCommentHeader(comment, user){
 
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    const message = document.querySelector('#comment').value;
+                    const message = document.querySelector('#comment-reply').value;
                     const formData = new FormData();
                     formData.append('comment', message);
                     formData.append('userId', user.id);
                     formData.append('parentId', comment.id);
 
-                    await Comments.addReply(formData);
-                    document.querySelector('main').removeChild(e.target)
+                    await Comments.add(formData, user);
+                    document.querySelector('#comment-reply').remove();
                 })
-                document.querySelector('main').appendChild(form);
+
+                // Insert form after the comment
+                let commentDiv = e.target.closest('.comment')
+                if (commentDiv.nextSibling) {
+                    commentDiv.parentNode.insertBefore(form, commentDiv.nextSibling);
+                } else {
+                    commentDiv.parentNode.appendChild(form);
+                }
             }
         })
 
         leftDiv.appendChild(username);
-        rightDiv.appendChild(replyBtn);
+        if(!comment.parentId) rightDiv.appendChild(replyBtn);
     }
 
     leftDiv.appendChild(time);

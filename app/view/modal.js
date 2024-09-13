@@ -1,13 +1,13 @@
 import { addElementOptions } from "../helpers/elements.js";
 import { Comments } from "../model/Comment.js";
 
-export function createModal(type, comment, userId){
+export function createModal(type, comment, user){
     const modalContainer = document.createElement('div');
     modalContainer.classList.add('modal-container');
 
     let modalContent;
     if(type === `delete`){
-        modalContent = modalDelete(comment, userId);
+        modalContent = modalDelete(comment, user);
     }
 
     const btnClose = document.createElement('button');
@@ -28,7 +28,7 @@ export function createModal(type, comment, userId){
     document.querySelector('main').appendChild(modalContainer)
 }
 
-function modalDelete(comment, userId){
+function modalDelete(comment, user){
 
     const modalContent = document.createElement('div');
     addElementOptions(modalContent,
@@ -54,9 +54,10 @@ function modalDelete(comment, userId){
         const data = {
             'commentId': comment.id,
             'commentUserId': comment.user.id,
-            'loginId': userId,
+            'loginId': user.id,
         };
-        await Comments.delComment(data);
+        await Comments.delComment(data, user);
+        document.querySelector('.modal-container').remove();
     });
     
     const btnCancel = document.createElement('button');

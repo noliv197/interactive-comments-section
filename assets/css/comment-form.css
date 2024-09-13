@@ -1,4 +1,4 @@
-#comment-form{
+.comment-form{
     background-color: var(--neutral-white);
     padding: var(--sm-1);
     display: flex;
@@ -7,11 +7,11 @@
     gap: var(--sm-1);
     width: 90%;
     align-self: center;
-    margin: 0 auto;
+    margin: var(--sm-1) auto;
     border-radius: var(--radius);
 }
 
-#comment-form textarea {
+.comment-form textarea {
     flex-grow: 1;
     padding: var(--sm-1);
     border: 1px solid var(--neutral-gray);
@@ -19,11 +19,11 @@
     min-height: 100px;
 }
 
-#comment-form textarea:focus {
+.comment-form textarea:focus {
     outline: 1px solid var(--primary-blue);
 }
 
-#comment-form textarea::placeholder {
+.comment-form textarea::placeholder {
     font-family: var(--font-family);
     color: var(--neutral-blue);
 }
