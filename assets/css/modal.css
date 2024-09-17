@@ -33,12 +33,23 @@
     opacity: 0.5;
 }
 
+/* Custom */
 .btn-container {
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap: var(--sm-1);
     margin: var(--sm-1) 0;
+}
+
+.modal-input {
+    display: block;
+    padding: var(--sm-1);
+    margin-top: var(--sm-1);
+    border: 1px solid var(--neutral-gray);
+    border-radius: var(--radius);
+    min-height: 100px;
+    min-width: 250px;
 }
 
 .modal {

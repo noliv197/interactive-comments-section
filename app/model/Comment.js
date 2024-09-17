@@ -1,4 +1,4 @@
-import { getComments, addComment, deleteComment } from "../controller/service.js";
+import { getComments, addComment, deleteComment, editComment} from "../controller/service.js";
 import { createComment, createSection } from "../view/comment.js";
 
 export class Comments{
@@ -30,7 +30,12 @@ export class Comments{
             .then(() => Comments.getAllComments(user));
     }
 
-    static async delComment(data, user){
+    static async edit(data, user){
+        editComment(data)
+            .then(() => Comments.getAllComments(user));
+    }
+
+    static async delete(data, user){
         const query = `commentId=${data.commentId}&loginId=${data.loginId}&commentUserId=${data.commentUserId}`;
         deleteComment(query)
             .then(() => Comments.getAllComments(user));

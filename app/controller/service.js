@@ -12,17 +12,14 @@ export async function addComment(data){
 
     const response = await fetch(`${backendUrl}/addComment`, {
         method: "POST", 
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
         body: data
       });
 
     return response;
 }
 
-export async function editScore(data){
-  const response = await fetch(`${backendUrl}/editScore`,{
+export async function editComment(data){
+  const response = await fetch(`${backendUrl}/editComment`,{
     method: "POST",
     body: data
   });

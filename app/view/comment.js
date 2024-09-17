@@ -43,9 +43,15 @@ function createCommentCounter(comment, user){
         }           
     );
 
-    addButton.addEventListener('click', (e) => {
+    addButton.addEventListener('click', async (e) => {
         let output = e.target.nextSibling
         output.value = Number(output.value) + 1;
+        
+        const data = new FormData();
+        data.append('id', comment.id);
+        data.append('score', output.value);
+
+        await Comments.edit(data, user);
     })
     
     const subtractButton = document.createElement('button');
@@ -60,9 +66,15 @@ function createCommentCounter(comment, user){
         }           
     );
 
-    subtractButton.addEventListener('click', (e) => {
+    subtractButton.addEventListener('click', async (e) => {
         let output = e.target.previousSibling;
         output.value = Number(output.value) > 0 ? Number(output.value)  - 1 : 0;
+
+        const data = new FormData();
+        data.append('id', comment.id);
+        data.append('score', output.value);
+
+        await Comments.edit(data, user);
     })
 
     // User cannot change score counter
@@ -158,6 +170,11 @@ function createCommentHeader(comment, user){
                 classes: ['btn--edit']
             }           
         );
+
+        editBtn.addEventListener('click', (e) => {
+            const commentText = e.target.parentNode.parentNode.nextSibling.innerText;
+            createModal('edit', comment, user, commentText);
+        })
 
         leftDiv.appendChild(username);
         leftDiv.appendChild(identification);
