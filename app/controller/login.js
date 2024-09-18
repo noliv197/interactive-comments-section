@@ -1,7 +1,11 @@
 import { login } from "../controller/service.js";
 
+const URL_DEV = "http://127.0.0.1:5500"
+const URL_PRD = "https://interactive-comments-section-git-main-noliv197s-projects.vercel.app"
+const URL = URL_PRD
+
 if(localStorage.getItem('user')){
-    location.replace("http://127.0.0.1:5500/");
+    location.replace(URL);
 }
 
 const form = document.querySelector(".user-form")
@@ -22,7 +26,7 @@ form.addEventListener('submit', async (e)=>{
             if(data){
                 console.log(data)
                 localStorage.setItem('user', JSON.stringify(data));
-                location.replace("http://127.0.0.1:5500/");
+                location.replace(URL);
             } else {
                 const alert = document.querySelector('.alert');
                 alert.textContent = 'Username or password wrong';

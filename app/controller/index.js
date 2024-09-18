@@ -3,10 +3,14 @@ import { Comments } from "../model/Comment.js";
 let user;
 
 const userInfo = localStorage.getItem('user');
+const URL_DEV = "http://127.0.0.1:5500"
+const URL_PRD = "https://interactive-comments-section-git-main-noliv197s-projects.vercel.app"
+const URL = URL_PRD
+
 if(userInfo){
     user = JSON.parse(userInfo);
 } else {
-    location.replace("http://127.0.0.1:5500/login.html");
+    location.replace(URL + "/login.html");
 }
 
 if(user){
@@ -35,7 +39,7 @@ Comments.getAllComments(user);
 
 document.querySelector(['[data-nav="logout"]']).addEventListener('click', () => {
     localStorage.removeItem('user');
-    location.replace("http://127.0.0.1:5500/login.html");
+    location.replace(URL + "/login.html");
 })
 
 document.querySelector('#form-new').addEventListener('submit', async (e) => {
