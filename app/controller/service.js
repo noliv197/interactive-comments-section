@@ -41,6 +41,9 @@ export async function login(data){
   const response = await fetch(`${backendUrl}/login`,{
     mode: 'cors',
     method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: data
   });
   
