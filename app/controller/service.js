@@ -1,6 +1,6 @@
 const BACK_URL_DEV = "http://localhost/comment-app/routes.php"
 const BACK_URL_PRD = "https://comment-section-backend-glwybi4w4-noliv197s-projects.vercel.app"
-const backendUrl = BACK_URL_PRD + "/routes.php"
+const backendUrl = BACK_URL_DEV + "/routes.php"
 
 export async function getComments(){
   return await fetch(`${backendUrl}/comments`)
