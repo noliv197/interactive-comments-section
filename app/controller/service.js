@@ -1,6 +1,6 @@
-const BACK_URL_DEV = "http://localhost/comment-app/routes.php"
-const BACK_URL_PRD = "https://comment-section-backend-glwybi4w4-noliv197s-projects.vercel.app"
-const backendUrl = BACK_URL_DEV + "/routes.php"
+const BACK_URL_DEV = "http://localhost/comment-app"
+const BACK_URL_PRD = "http://commentsection-env-1.eba-w7bqwdmq.us-east-1.elasticbeanstalk.com/comment-app"
+const backendUrl = BACK_URL_PRD + "/index.php"
 
 export async function getComments(){
   return await fetch(`${backendUrl}/comments`)
@@ -39,11 +39,11 @@ export async function deleteComment(query){
 /* User Requests */
 export async function login(data){
   const response = await fetch(`${backendUrl}/login`,{
-    mode: 'cors',
+    // mode: 'cors',
     method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    // headers: {
+    //   'Content-Type': 'application/json'
+    // },
     body: data
   });
   
